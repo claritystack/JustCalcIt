@@ -4,7 +4,7 @@ url: "https://claritystack.github.io"
 baseurl: "/calcnest"
 
 markdown: kramdown
-permalink: /:title/
+permalink: /calcnest/:title/
 
 lang: en
 timezone: America/New_York

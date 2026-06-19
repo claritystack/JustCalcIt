@@ -42,19 +42,19 @@ date: 2026-06-19
 
   <h2>Frequently Asked Questions(FAQs)</h2>
 
-  <h3>Is a 10% tip disrespectful?</h3>
+  <h3>1) Is a 10% tip disrespectful?</h3>
   <p>Not inherently — context matters. As a deliberate response to genuinely poor, server-controlled service, 10% reads as a clear but measured signal rather than an insult. The problem is when 10% becomes someone's default for *normal* service, since that falls noticeably below the standard 15–20% range and can come across as a discount on effort that was actually fine.</p>
 
-  <h3>What is the 20% tip trick?</h3>
+  <h3>2) What is the 20% tip trick?</h3>
   <p>It's a quick mental math shortcut, not a formal rule. Move the decimal point one place to the left to get 10% of the bill, then double that number to land on 20%. On a $48 bill, 10% is $4.80, so 20% is $9.60. It's popular precisely because it removes the need for a calculator or phone at the table — though plenty of people just use ours instead.</p>
 
-  <h3>Is it rude not to tip at all?</h3>
+  <h3>3) Is it rude not to tip at all?</h3>
   <p>In the context of full-service, sit-down dining in the US, yes — leaving zero is widely viewed as a significant breach of etiquette, given how directly server pay depends on tips. It's a different conversation at counter-service spots, where tipping is optional to begin with and skipping it carries no real social weight.</p>
 
-  <h3>Is 20% considered a generous tip?</h3>
+  <h3>4) Is 20% considered a generous tip?</h3>
   <p>It's generous relative to the older 15% baseline, but in many cities today it's closer to the expected norm for good service rather than an exceptional gesture. If you want to signal genuinely outstanding service, 22–25% is where that distinction starts to show. 20% has simply become the new "solid, no complaints" tip rather than a standout one.</p>
 
-  <h3>Should you tip more for takeout?</h3>
+  <h3>5) Should you tip more for takeout?</h3>
   <p>Tipping on takeout orders is optional and generally lighter than sit-down service — $1 to $2, or around 10% for larger or more complex orders, is reasonable. Someone still assembled and packaged your order, even if no one waited on your table.</p>
 
   <h2>Skip the Mental Math</h2>

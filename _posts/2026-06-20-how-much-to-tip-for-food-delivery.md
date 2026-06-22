@@ -8,14 +8,14 @@ date: 2026-06-20
 <div class="simple-page">
   <h1>{{ page.title }}</h1>
 
-  <p>Ordering food to your door has become so routine that it's easy to forget there's a real person driving across town, navigating apartment buildings with no clear unit numbers, and carrying your bag up three flights of stairs because the elevator's out again. Tipping for delivery follows a lot of the same logic as <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/">tipping at a restaurant</a>, but the details shift just enough that it's worth walking through separately — especially since delivery apps have changed how tipping actually works at a mechanical level, not just a social one.</p>
+  <p>Ordering food to your door has become so routine that it's easy to forget there's a real person driving across town, navigating apartment buildings with no clear unit numbers, and carrying your bag up three flights of stairs because the elevator's out again. Tipping for delivery follows a lot of the same logic as <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/" target="_blank">tipping at a restaurant</a>, but the details shift just enough that it's worth walking through separately — especially since delivery apps have changed how tipping actually works at a mechanical level, not just a social one.</p>
 
    <h2>Quick Reference</h2>
   <ul style="color:var(--text2);margin:0 0 16px 24px;line-height:2;">
     <li>Standard order: <strong>15%–20%</strong> of the subtotal</li>
     <li>Small orders: <strong>$2–$3 minimum</strong>, even if percentage math suggests less</li>
     <li>Bad weather or long distance: <strong>add $1–$3</strong> on top of your usual tip</li>
-    <li>Large or complex orders: tip above the standard range, similar to <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/">large dining groups</a></li>
+    <li>Large or complex orders: tip above the standard range, similar to <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/" target="_blank">large dining groups</a></li>
     <li>Wrong or missing items: usually a kitchen error, not the driver's fault — tip normally</li>
   </ul>
 
@@ -38,7 +38,7 @@ date: 2026-06-20
   <p>No — and this is a genuinely common point of confusion. The delivery fee charged by the app is largely a platform fee, not driver compensation. In most cases, only a portion of it (if any) reaches the driver directly; the rest covers the platform's own operating costs. The tip, separately, is what most directly affects what the driver actually takes home from your specific order. Treating the delivery fee as "the tip" and then tipping $0 on top of it is one of the more common mistakes people make, and it generally results in the driver earning far less than the total amount you paid would suggest.</p>
 
   <h2>Tipping for Large or Complicated Orders</h2>
-  <p>If you're ordering for a group — multiple separate meals, a large catering-style order, or anything requiring extra care to keep organized — it's worth tipping above the standard percentage, similar to how <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/">large dining groups</a> often come with automatic gratuity built in. A driver handling a complicated, multi-bag order is doing more than someone delivering a single drink, and the tip is a reasonable place to reflect that difference.</p>
+  <p>If you're ordering for a group — multiple separate meals, a large catering-style order, or anything requiring extra care to keep organized — it's worth tipping above the standard percentage, similar to how <a href="{{ site.baseurl }}/blog/how-much-should-you-tip-at-a-restaurant/" target="_blank">large dining groups</a> often come with automatic gratuity built in. A driver handling a complicated, multi-bag order is doing more than someone delivering a single drink, and the tip is a reasonable place to reflect that difference.</p>
 
   <h2>What If the Order Arrives Wrong or Late?</h2>
   <p>The same principle that applies to restaurant tipping applies here: separate what's actually within the driver's control from what isn't. If your order is missing an item or the wrong dish entirely, that's almost always a restaurant kitchen error, not something the driver had any part in — they're delivering exactly what was handed to them. Lateness is murkier; it could be the restaurant taking too long to prepare the order, unusually heavy traffic, or a platform routing issue, none of which the driver necessarily controls. Unless you have a clear reason to believe the driver themselves caused the delay — taking a detour, stopping somewhere unrelated — it's generally fairer to tip normally and report the issue to the app's support rather than reducing the tip.</p>
@@ -60,5 +60,5 @@ date: 2026-06-20
   <h3>5) Is tipping on delivery apps mandatory?</h3>
   <p>No, it's not mandatory in the way that, say, sales tax is. But given how delivery driver pay is structured — often a relatively small base payout per delivery — tips function similarly to restaurant tipping in the US: technically optional, but a core part of how drivers actually earn a living wage doing this work.</p>
 
-  <p>If you'd rather skip the percentage math entirely, our <a href="{{ site.baseurl }}/tip-calculator/">free tip calculator</a> works just as well for delivery orders as it does for restaurant bills — enter your order total, pick a percentage, and you're done. And if you want the full mental-math shortcut for calculating tips on the fly, we walked through <a href="{{ site.baseurl }}/blog/how-to-calculate-a-tip/">exactly how to do that here</a>.</p>
+  <p>If you'd rather skip the percentage math entirely, our <a href="{{ site.baseurl }}/tip-calculator/" target="_blank">free tip calculator</a> works just as well for delivery orders as it does for restaurant bills — enter your order total, pick a percentage, and you're done. And if you want the full mental-math shortcut for calculating tips on the fly, we walked through <a href="{{ site.baseurl }}/blog/how-to-calculate-a-tip/" target="_blank">exactly how to do that here</a>.</p>
 </div>

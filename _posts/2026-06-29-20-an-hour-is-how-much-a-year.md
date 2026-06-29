@@ -78,21 +78,21 @@ date: 2026-06-29
     <li>Annual after taxes, high-tax state: <strong>~$31,000–$33,000</strong></li>
   </ul>
 
-  <h2>A few more questions people usually have</h2>
+  <h2>Frequently Asked Questions(FAQs)</h2>
 
-  <h3>Is $20 an hour enough to live on?</h3>
+  <h3>1) Is $20 an hour enough to live on?</h3>
 
   <p>It depends almost entirely on location. In lower cost-of-living areas, it's a workable, independent wage. In expensive cities, it gets tight fast, especially with rent factored in.</p>
 
-  <h3>How much is $20 an hour biweekly after taxes?</h3>
+  <h3>2) How much is $20 an hour biweekly after taxes?</h3>
 
   <p>Gross biweekly pay is $1,600. After federal tax and FICA, expect somewhere around $1,300 to $1,380, with state tax pulling that lower depending on where you live.</p>
 
-  <h3>How much is $20 an hour monthly?</h3>
+  <h3>3) How much is $20 an hour monthly?</h3>
 
   <p>Gross monthly pay is about $3,467. After taxes, that typically lands somewhere between $2,600 and $3,000, depending on state and filing status.</p>
 
-  <h3>What salary is equivalent to $20 an hour?</h3>
+  <h3>4) What salary is equivalent to $20 an hour?</h3>
 
   <p>At a standard 40-hour week, $20/hour equals a $41,600 annual salary — that's the direct conversion employers use when comparing hourly roles to salaried ones.</p>
 

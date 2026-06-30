@@ -2,7 +2,7 @@
 layout: default
 title: "$25 an Hour Is How Much a Year? (And After Taxes)"
 description: "What a $25 an hour wage actually translates to annually, monthly, and after taxes — plus how it stacks up against the median US wage."
-date: 2026-06-24
+date: 2026-06-30
 ---
 
 <div class="simple-page">

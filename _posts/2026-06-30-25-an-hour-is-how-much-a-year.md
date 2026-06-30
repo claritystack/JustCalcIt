@@ -77,25 +77,25 @@ date: 2026-06-30
     <li>Annual after taxes, high-tax state: <strong>~$38,000–$40,000</strong></li>
   </ul>
 
-  <h2>Common questions</h2>
+  <h2>Frequently Asked Questions(FAQs)</h2>
 
-  <h3>Is $25 an hour a livable wage?</h3>
+  <h3>1) Is $25 an hour a livable wage?</h3>
 
   <p>In most of the country, yes, particularly outside of major coastal cities. It's enough to cover rent, basic expenses, and some savings in moderate cost-of-living areas, though it gets considerably tighter in expensive metros.</p>
 
-  <h3>How much is $25 an hour after taxes per paycheck?</h3>
+  <h3>2) How much is $25 an hour after taxes per paycheck?</h3>
 
   <p>Paid biweekly, expect roughly $1,500 to $1,700 after federal tax and FICA, with state tax pulling the number down further depending on where you live.</p>
 
-  <h3>Is $52,000 a year considered middle class?</h3>
+  <h3>3) Is $52,000 a year considered middle class?</h3>
 
   <p>By most national income measures, yes — it falls within typical middle-class income ranges, though "middle class" varies significantly by region and household size.</p>
 
-  <h3>How many hours a week is $25 an hour to make $1,000?</h3>
+  <h3>4) How many hours a week is $25 an hour to make $1,000?</h3>
 
   <p>Exactly 40 hours at $25/hour comes out to $1,000 before taxes, which is the standard full-time week most of these numbers assume.</p>
 
-  <h2>See your actual number</h2>
+  <h2>5) See your actual number</h2>
 
   <p>These figures assume a single filer taking the standard deduction — your real take-home shifts based on filing status, dependents, and exactly which state you're in. Plug your numbers into our <a href="{{ site.baseurl }}/paycheck-calculator/" target="_blank">paycheck calculator</a> to see your specific result instead of a general range.</p>
 

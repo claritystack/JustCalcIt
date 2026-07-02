@@ -5,31 +5,41 @@ description: "Calculate your new salary after a raise and see exactly how much m
 icon: "📈"
 name: "Pay Raise Calculator"
 card_desc: "See your new salary and take-home pay after a raise."
-category: "Paycheck & Salary"
+category: "Finance"
 ---
 
 <div class="calc-page">
-  <h1>Pay Raise Calculator</h1>
-  <p class="calc-subtitle">Enter your current pay and raise to see your new salary — plus exactly how much more you'll actually take home after taxes.</p>
+
+  <div class="calc-hero">
+    <h1>Pay Raise Calculator</h1>
+    <p>Enter your current pay and raise to see your new salary — plus exactly how much more you'll actually take home after taxes.</p>
+  </div>
 
   <div class="card">
+
     <div class="field">
       <label>Current Pay</label>
-      <div class="input-row">
-        <span class="prefix">$</span>
-        <input type="number" id="currentPay" placeholder="e.g. 50000" min="0">
-        <select id="payPeriod" class="calc-select inline-select">
-          <option value="annual">per year</option>
-          <option value="hourly">per hour</option>
-          <option value="monthly">per month</option>
-          <option value="biweekly">biweekly</option>
-        </select>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="currentPay" placeholder="50000" min="0">
       </div>
+    </div>
+
+    <div class="field">
+      <label>Pay Period</label>
+      <select id="payPeriod" class="calc-select">
+        <option value="annual">Annual Salary</option>
+        <option value="hourly">Hourly Wage</option>
+        <option value="monthly">Monthly</option>
+        <option value="biweekly">Biweekly</option>
+      </select>
     </div>
 
     <div class="field" id="hoursField" style="display:none;">
       <label>Hours Per Week</label>
-      <input type="number" id="hoursPerWeek" value="40" min="1" max="80">
+      <div class="input-wrap no-prefix">
+        <input type="number" id="hoursPerWeek" value="40" min="1" max="80">
+      </div>
     </div>
 
     <div class="field">
@@ -49,17 +59,16 @@ category: "Paycheck & Salary"
         <button class="tip-btn" data-pct="10">10%</button>
         <button class="tip-btn" data-pct="15">15%</button>
       </div>
-      <div class="input-row" style="margin-top:12px;">
+      <div class="input-wrap no-prefix" style="margin-top:12px;">
         <input type="number" id="raisePercent" placeholder="e.g. 5" min="0" max="1000">
-        <span class="suffix">%</span>
       </div>
     </div>
 
     <div class="field" id="flatField" style="display:none;">
-      <label>Raise Amount (Annual)</label>
-      <div class="input-row">
-        <span class="prefix">$</span>
-        <input type="number" id="raiseFlat" placeholder="e.g. 5000" min="0">
+      <label>Raise Amount (Annual $)</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="raiseFlat" placeholder="5000" min="0">
       </div>
     </div>
 
@@ -72,116 +81,140 @@ category: "Paycheck & Salary"
       </select>
     </div>
 
-    <button class="reset-btn" id="calcBtn">Calculate My Raise</button>
-  </div>
-
-  <div class="results-card" id="results" style="display:none;">
-    <div class="result-hero">
-      <div class="result-label">New Annual Salary</div>
-      <div class="result-amount" id="newSalaryDisplay">—</div>
-    </div>
-
-    <div class="result-grid">
+    <div class="results" id="results" style="display:none;">
+      <div class="result-row highlight">
+        <span class="result-label">New Annual Salary</span>
+        <span class="result-val" id="newSalaryDisplay">—</span>
+      </div>
       <div class="result-row">
-        <span>Annual Raise</span>
-        <span id="raiseAmountDisplay" class="positive">—</span>
+        <span class="result-label">Annual Raise Amount</span>
+        <span class="result-val" id="raiseAmountDisplay">—</span>
       </div>
       <div class="result-row highlight">
-        <span>Extra Take-Home Per Year</span>
-        <span id="extraTakeHome" class="positive">—</span>
+        <span class="result-label">Extra Take-Home Per Year</span>
+        <span class="result-val" id="extraTakeHome">—</span>
       </div>
-      <div class="result-row highlight">
-        <span>Extra Take-Home Per Month</span>
-        <span id="extraTakeHomeMonth" class="positive">—</span>
+      <div class="result-row">
+        <span class="result-label">Extra Take-Home Per Month</span>
+        <span class="result-val" id="extraTakeHomeMonth">—</span>
       </div>
-      <div class="result-row highlight">
-        <span>Extra Take-Home Per Paycheck <small>(biweekly)</small></span>
-        <span id="extraTakeHomeBiweekly" class="positive">—</span>
+      <div class="result-row">
+        <span class="result-label">Extra Take-Home Per Paycheck <small>(biweekly)</small></span>
+        <span class="result-val" id="extraTakeHomeBiweekly">—</span>
       </div>
     </div>
 
-    <div class="result-divider"></div>
-
-    <p class="result-section-label">Before vs. After Raise</p>
-    <div class="compare-grid">
-      <div class="compare-col">
-        <div class="compare-label">Current</div>
-        <div class="compare-row"><span>Gross Annual</span><span id="oldGross">—</span></div>
-        <div class="compare-row"><span>Federal Tax</span><span id="oldFed">—</span></div>
-        <div class="compare-row"><span>FICA</span><span id="oldFica">—</span></div>
-        <div class="compare-row total"><span>Take-Home</span><span id="oldNet">—</span></div>
-      </div>
-      <div class="compare-col">
-        <div class="compare-label new">After Raise</div>
-        <div class="compare-row"><span>Gross Annual</span><span id="newGross">—</span></div>
-        <div class="compare-row"><span>Federal Tax</span><span id="newFed">—</span></div>
-        <div class="compare-row"><span>FICA</span><span id="newFica">—</span></div>
-        <div class="compare-row total"><span>Take-Home</span><span id="newNet">—</span></div>
-      </div>
-    </div>
-
-    <p class="calc-disclaimer">Estimates federal tax and FICA only. Does not include state tax, 401(k), health insurance, or other deductions. Actual take-home will vary.</p>
+    <button class="reset-btn" id="calcBtn">Calculate My Raise</button>
+    <button class="reset-btn" id="resetBtn" style="display:none; margin-top:8px;">↺ Reset</button>
   </div>
 
-  <div class="guide-grid" style="margin-top:40px;">
-    <div class="guide-card">
-      <div class="guide-icon">📊</div>
-      <div class="guide-title">Average US Raise</div>
-      <div class="guide-text">The typical annual raise in the US is 3–4%, roughly keeping pace with inflation. A raise of 5%+ is considered above average and common with promotions.</div>
+  <div class="card" id="compareCard" style="display:none; margin-top:24px;">
+    <h2 class="section-title" style="margin-top:0;">Before vs. After Raise</h2>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <div class="service">📋 Current Gross</div>
+        <div class="amount" id="oldGross">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">📋 New Gross</div>
+        <div class="amount" id="newGross">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">🏛️ Federal Tax (before)</div>
+        <div class="amount" id="oldFed">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">🏛️ Federal Tax (after)</div>
+        <div class="amount" id="newFed">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">🏦 FICA (before)</div>
+        <div class="amount" id="oldFica">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">🏦 FICA (after)</div>
+        <div class="amount" id="newFica">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">💵 Take-Home (before)</div>
+        <div class="amount" id="oldNet">—</div>
+      </div>
+      <div class="guide-item">
+        <div class="service">💵 Take-Home (after)</div>
+        <div class="amount" id="newNet">—</div>
+      </div>
     </div>
-    <div class="guide-card">
-      <div class="guide-icon">💡</div>
-      <div class="guide-title">Why Take-Home Is Less</div>
-      <div class="guide-text">A raise pushes more of your income into higher tax brackets. A $5,000 raise doesn't add $5,000 to your pocket — federal tax and FICA both take a cut first.</div>
+    <p class="calc-disclaimer" style="margin-top:16px;">Estimates federal tax and FICA only. Does not include state tax, 401(k), health insurance, or other deductions.</p>
+  </div>
+
+  <h2 class="section-title">What Affects Your Take-Home After a Raise?</h2>
+  <div class="guide-grid">
+    <div class="guide-item">
+      <div class="service">📊 Average US Raise</div>
+      <div class="amount">3–4% annually</div>
     </div>
-    <div class="guide-card">
-      <div class="guide-icon">🎯</div>
-      <div class="guide-title">Negotiation Tip</div>
-      <div class="guide-text">When negotiating, think in annual dollars, not percentages. A 5% raise on $40k is $2,000/year. On $80k it's $4,000. Know your number before the conversation.</div>
+    <div class="guide-item">
+      <div class="service">🎯 Good Raise</div>
+      <div class="amount">5–8% for strong performers</div>
     </div>
-    <div class="guide-card">
-      <div class="guide-icon">📅</div>
-      <div class="guide-title">Raise vs. Inflation</div>
-      <div class="guide-text">If inflation is 4% and your raise is 3%, your real purchasing power actually went down. A raise only improves your situation if it beats the inflation rate.</div>
+    <div class="guide-item">
+      <div class="service">🚀 Promotion Bump</div>
+      <div class="amount">10–20% typical</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">💼 Job Switch</div>
+      <div class="amount">15–25% common</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🏛️ Marginal Tax Rate</div>
+      <div class="amount">Only extra income taxed higher</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">📉 Real Raise</div>
+      <div class="amount">Must beat inflation to matter</div>
     </div>
   </div>
 
-  <div class="card prose" style="margin-top:32px;">
+  <div class="card prose">
     <h2>How to Calculate a Pay Raise</h2>
-    <p>The math is straightforward. Multiply your current salary by the raise percentage expressed as a decimal, then add it to your current salary.</p>
-    <p>For example: a $60,000 salary with a 5% raise → $60,000 × 1.05 = <strong>$63,000</strong>.</p>
-    <p>But the number that actually matters is how much more hits your bank account. A $3,000 raise doesn't add $3,000 to your take-home — federal income tax and FICA both apply to that extra income first.</p>
+    <p>The math is simple: multiply your current salary by the raise percentage as a decimal, then add it back.</p>
+    <p>A $60,000 salary with a 5% raise → $60,000 × 1.05 = <strong>$63,000</strong>.</p>
+    <p>But the number that actually matters is how much more hits your bank account. That $3,000 raise doesn't add $3,000 to your take-home — federal income tax and FICA both apply to that extra income first.</p>
 
     <h2>Why Your Raise Feels Smaller Than Expected</h2>
-    <p>The US uses a progressive tax system, meaning the more you earn, the higher the rate on the top portion of your income. When you get a raise, that additional income gets taxed at your marginal rate — which is higher than the average rate on your full salary.</p>
-    <p>On top of federal tax, Social Security (6.2%) and Medicare (1.45%) also apply to every dollar of earned income up to the wage base. So a $5,000 raise effectively loses around 30–40% to taxes before it reaches you, depending on your bracket.</p>
+    <p>The US uses a progressive tax system. When you get a raise, that additional income gets taxed at your marginal rate — which is higher than the average rate on your full salary.</p>
+    <p>On top of that, Social Security (6.2%) and Medicare (1.45%) apply to every dollar. So a $5,000 raise loses around 30–40% to taxes before it reaches you, depending on your bracket.</p>
 
-    <h2>What's a Good Raise to Ask For?</h2>
-    <p>In a typical year, 3–4% is considered a standard cost-of-living increase. If you're performing well and the job market is competitive, 5–8% is a reasonable ask. Promotions typically come with 10–20% bumps. If you're switching jobs entirely, a 15–25% increase is common and expected.</p>
-    <p>The single most effective thing you can do before a salary negotiation is know the market rate for your role. Sites like Glassdoor, Levels.fyi (for tech), and the Bureau of Labor Statistics Occupational Outlook Handbook all have real salary data by role and region.</p>
+    <h2>Raise vs. Bonus — Which Is Better?</h2>
+    <p>A raise permanently increases your base salary — it compounds with future raises and affects your 401(k) match and any percentage-based bonuses. A one-time bonus doesn't raise your baseline.</p>
+    <p>Over a 5-year career, a $3,000 raise is almost always worth more than a $3,000 bonus, even if they look identical upfront.</p>
 
-    <h2>Raise vs. Bonus — What's the Difference?</h2>
-    <p>A raise permanently increases your base salary — it compounds with future raises and affects your benefits, 401(k) match, and any percentage-based bonuses. A one-time bonus is taxed at the supplemental rate (22% federally for most people) and doesn't raise your baseline going forward.</p>
-    <p>Over a 5-year career, a $3,000 raise is almost always worth more than a $3,000 bonus, even if the immediate dollar amount looks the same.</p>
+    <h2>Does a Raise Change Your Tax Bracket?</h2>
+    <p>It might push some of your income into a higher bracket — but only the income above that threshold gets taxed at the higher rate, not your entire salary. The US system is marginal, not a cliff. A raise never makes you take home less money.</p>
   </div>
 
-  <div class="card prose" style="margin-top:24px;">
-    <h2>Frequently Asked Questions</h2>
-
-    <h3>1) How much will a 5% raise increase my paycheck?</h3>
-    <p>On a $60,000 salary, a 5% raise adds $3,000 annually — about $115 extra per biweekly paycheck after federal taxes and FICA. Use the calculator above to get your exact number.</p>
-
-    <h3>2) Is a 3% raise good?</h3>
-    <p>It depends on inflation. In a normal year where inflation is around 2–3%, a 3% raise roughly maintains your purchasing power. In a high-inflation year (4–6%), a 3% raise is effectively a pay cut in real terms.</p>
-
-    <h3>3) How do I calculate a raise percentage from two salaries?</h3>
-    <p>Subtract the old salary from the new one, divide by the old salary, then multiply by 100. Example: going from $55,000 to $60,000 → ($5,000 ÷ $55,000) × 100 = <strong>9.09%</strong>.</p>
-
-    <h3>4) Does a raise change my tax bracket?</h3>
-    <p>It might push some of your income into a higher bracket, but only the income above the bracket threshold gets taxed at the higher rate — not your entire salary. The US tax system is marginal, not a cliff.</p>
-
-    <h3>5) How much of my raise will I actually keep?</h3>
-    <p>Roughly 65–75 cents of every extra dollar, depending on your bracket and state. Federal tax (at your marginal rate) plus FICA (7.65%) accounts for the rest. The calculator above shows the exact split for your situation.</p>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q">How much will a 5% raise increase my paycheck? <span class="faq-icon">+</span></button>
+      <div class="faq-a">On a $60,000 salary, a 5% raise adds $3,000 annually — about $115 extra per biweekly paycheck after federal taxes and FICA. Use the calculator above for your exact number.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is a 3% raise good? <span class="faq-icon">+</span></button>
+      <div class="faq-a">It depends on inflation. In a normal year where inflation is 2–3%, a 3% raise roughly maintains your purchasing power. In a high-inflation year, a 3% raise is effectively a pay cut in real terms.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I calculate a raise percentage from two salaries? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Subtract the old salary from the new one, divide by the old salary, then multiply by 100. Going from $55,000 to $60,000 → ($5,000 ÷ $55,000) × 100 = 9.09%.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much of my raise will I actually keep? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Roughly 65–75 cents of every extra dollar, depending on your bracket and state. Federal tax at your marginal rate plus FICA (7.65%) accounts for the rest.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What's a realistic raise to ask for in 2026? <span class="faq-icon">+</span></button>
+      <div class="faq-a">For a solid performer staying in the same role, 5–7% is a reasonable ask. If you're being promoted or have a competing offer, 10–20% is common and expected.</div>
+    </div>
   </div>
 
 </div>

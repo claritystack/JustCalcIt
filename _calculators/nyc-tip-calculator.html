@@ -1,0 +1,205 @@
+---
+layout: calculator
+title: "NYC Tip Calculator – With 8.875% New York City Tax"
+description: "Calculate your tip and split the bill at any NYC restaurant. Automatically accounts for New York City's 8.875% sales tax so you tip on the right amount."
+icon: "🗽"
+name: "NYC Tip Calculator"
+card_desc: "Calculate tips and split bills with NYC's 8.875% sales tax built in."
+category: "Finance"
+---
+
+<div class="calc-page">
+
+  <div class="calc-hero">
+    <h1>NYC Tip Calculator</h1>
+    <p>Calculate your tip at any New York City restaurant — with NYC's 8.875% sales tax already factored in so you're always tipping on the right amount.</p>
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label>What's on Your Receipt?</label>
+      <div class="tip-btns" id="inputTypeBtns">
+        <button class="tip-btn active" data-input="pretax">Pre-tax subtotal</button>
+        <button class="tip-btn" data-input="posttax">Total after tax</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label id="billLabel">Bill Amount (before tax)</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="bill" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Included Gratuity or Service Charge?</label>
+      <div class="tip-btns" id="gratBtns">
+        <button class="tip-btn active" data-grat="none">None</button>
+        <button class="tip-btn" data-grat="18">18% included</button>
+        <button class="tip-btn" data-grat="20">20% included</button>
+        <button class="tip-btn" data-grat="custom">Custom</button>
+      </div>
+    </div>
+
+    <div class="field" id="customGratField" style="display:none;">
+      <label>Included Gratuity Amount ($)</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="customGrat" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Extra Tip Percentage</label>
+      <div class="tip-btns" id="tipBtns">
+        <button class="tip-btn" data-val="0">$0</button>
+        <button class="tip-btn" data-val="5">5%</button>
+        <button class="tip-btn" data-val="10">10%</button>
+        <button class="tip-btn active" data-val="18">18%</button>
+        <button class="tip-btn" data-val="20">20%</button>
+        <button class="tip-btn" data-val="25">25%</button>
+      </div>
+      <div class="input-wrap no-prefix" style="margin-top:12px;">
+        <input type="number" id="tipPct" value="18" min="0" max="100" step="1" placeholder="Custom %">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Number of People</label>
+      <div class="stepper">
+        <button class="step-btn" id="minus">−</button>
+        <div id="peopleVal">1</div>
+        <button class="step-btn" id="plus">+</button>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result-row">
+        <span class="result-label">Pre-Tax Subtotal</span>
+        <span class="result-val" id="pretaxDisplay">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">NYC Sales Tax (8.875%)</span>
+        <span class="result-val" id="taxDisplay">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Included Gratuity</span>
+        <span class="result-val" id="includedGratDisplay">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Extra Tip Amount</span>
+        <span class="result-val" id="extraTipDisplay">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Grand Total</span>
+        <span class="result-val" id="grandTotal">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Per Person</span>
+        <span class="result-val" id="perPerson">$0.00</span>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">↺ Reset</button>
+  </div>
+
+  <h2 class="section-title">Tipping by Service</h2>
+  <div class="guide-grid">
+    <div class="guide-item">
+      <div class="service">🍽️ Sit-Down Restaurants</div>
+      <div class="amount">18% – 20% (20% is standard)</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🍕 Food Delivery</div>
+      <div class="amount">15% – 20% of order total</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🚕 NYC Taxi / Yellow Cab</div>
+      <div class="amount">15% – 20%, minimum $1</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🚗 Uber / Lyft</div>
+      <div class="amount">15% – 20% in-app</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">💇 Hair Salon / Barber</div>
+      <div class="amount">20% standard in NYC</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🏨 Hotel Housekeeping</div>
+      <div class="amount">$3 – $5 per night in NYC</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🛎️ Hotel Doorman / Bellhop</div>
+      <div class="amount">$2 – $5 per bag</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">📦 Food Delivery Apps</div>
+      <div class="amount">$3 minimum or 15–20%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🎭 Tour Guide</div>
+      <div class="amount">$5 – $20 per person</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">💆 Massage / Spa</div>
+      <div class="amount">20% is standard in NYC</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🎿 Coat Check</div>
+      <div class="amount">$1 – $2 per item</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🅿️ Valet Parking</div>
+      <div class="amount">$3 – $5 when car returned</div>
+    </div>
+  </div>
+
+  <div class="card prose">
+    <h2>Why NYC Bills Look Higher Than Expected</h2>
+    <p>New York City has one of the highest combined sales tax rates in the country — 8.875%. That's 4% state tax, 4.5% NYC tax, and a 0.375% Metropolitan Commuter Transportation District surcharge all stacked together.</p>
+    <p>On a $80 dinner, that's an extra $7.10 in tax before you've even thought about the tip. By the time you add an 20% tip on the pre-tax amount, a meal that looked like $80 on the menu ends up closer to $103. That surprise is why this calculator exists.</p>
+
+    <h2>Should You Tip Before or After Tax in NYC?</h2>
+    <p>Most New Yorkers tip on the pre-tax subtotal — the food and drinks total before the 8.875% is added. It's the more common approach and the one this calculator defaults to.</p>
+    <p>Some people tip on the total after tax, which is slightly more generous. The difference on a $60 bill is about $1.07 either way. Neither is wrong — just be consistent so you're not doing math at the table.</p>
+    <p>One NYC-specific shortcut locals use: double the tax. Since NYC tax is 8.875%, doubling it gives you roughly 17.75% — close enough to 18% that it works as a quick mental math tip estimate without pulling out your phone.</p>
+
+    <h2>Automatic Gratuity in NYC — What to Watch For</h2>
+    <p>Many NYC restaurants automatically add 18% or 20% gratuity for parties of 6 or more. Some add it for smaller parties too, especially in tourist-heavy areas like Times Square or Midtown.</p>
+    <p>Always check your bill before adding a tip. The automatic gratuity line is usually labeled "auto grat," "service charge," or "gratuity included" — but it's easy to miss. This calculator has an included gratuity field specifically for this situation so you can account for it and decide whether to add anything extra.</p>
+
+    <h2>The Double Tax Tip Trick</h2>
+    <p>New Yorkers have been using this for years. Your NYC tax line on the receipt is 8.875% of your food total. Double that number and you get approximately 17.75% — which rounds to a solid 18% tip with zero math required.</p>
+    <p>It's not exact, but it's close enough that most servers wouldn't notice the difference, and it saves you from fumbling with a calculator when the check arrives.</p>
+  </div>
+
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q">What is the standard tip in NYC restaurants? <span class="faq-icon">+</span></button>
+      <div class="faq-a">20% is the standard in New York City for sit-down restaurant service. 18% is acceptable for average service. Below 15% signals something went wrong. NYC servers often work in one of the most expensive cities in the world — tipping well is part of dining out here.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is NYC's sales tax on restaurant meals? <span class="faq-icon">+</span></button>
+      <div class="faq-a">8.875% — made up of 4% New York State tax, 4.5% New York City tax, and a 0.375% Metropolitan Commuter Transportation District surcharge. It applies to all prepared food and beverages at restaurants.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I calculate a tip quickly in NYC? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Double the tax line on your receipt. NYC tax is 8.875%, so doubling it gives you ~17.75% — a solid approximation of an 18% tip with no math needed. For 20%, find 10% of the pre-tax total and double it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do NYC restaurants add automatic gratuity? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Many do, especially for large parties (6+) or in tourist-heavy areas. Always check your bill before adding a tip. Look for lines labeled "auto grat," "service charge," or "gratuity included." Adding another tip on top means you've double-tipped.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much do you tip a taxi in NYC? <span class="faq-icon">+</span></button>
+      <div class="faq-a">15% to 20% is standard for yellow cabs and rideshares in NYC. NYC taxis have preset tip buttons on the payment screen (15%, 20%, 25%) — most riders tap 20% and move on. For short rides under $10, a $2 minimum tip is common.</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/calculators/nyc-tip.js"></script>

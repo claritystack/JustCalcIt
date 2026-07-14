@@ -14,6 +14,10 @@ date: 2026-07-14
 <p>Then your first paycheck arrives and it's nowhere near what you expected.</p>
 
 <p>That's the gross vs net pay gap — and almost everyone hits it for the first time without warning.</p>
+<img loading="lazy" src="https://raw.githubusercontent.com/claritystack/images/main/gross-vs-net-pay.webp"
+                        alt="Gross Pay vs Net Pay: What's the Difference?"
+                        style="width:100%; max-width:800px; height:auto; margin:12px 0 20px; display:block;">
+
 
 <h2>What is Gross Pay?</h2>
 

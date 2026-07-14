@@ -16,6 +16,10 @@ date: 2026-07-13
 <p>Where did $657 go? Every single paycheck?</p>
 
 <p>This is one of the most common financial surprises people hit when they start a new job — and nobody really warns you about it beforehand. Let's fix that.</p>
+<img loading="lazy" src="https://raw.githubusercontent.com/claritystack/images/main/paycheck.webp"
+                        alt="Why Is My Paycheck Less Than My Salary?"
+                        style="width:100%; max-width:800px; height:auto; margin:12px 0 20px; display:block;">
+
 
 <h2>Gross Pay vs. Net Pay — The Two Numbers on Your Stub</h2>
 

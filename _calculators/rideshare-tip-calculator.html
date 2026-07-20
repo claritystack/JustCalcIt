@@ -1,0 +1,195 @@
+---
+layout: calculator
+title: "Rideshare Tip Calculator – How Much to Tip Uber & Lyft Drivers"
+description: "Free rideshare tip calculator for Uber and Lyft. Calculate the right tip for any ride in seconds — with tipping guides for standard rides, airport trips, Uber Eats, and more."
+icon: "🚗"
+name: "Rideshare Tip Calculator"
+card_desc: "Calculate tips for Uber, Lyft, and food delivery rides instantly."
+category: "Finance"
+---
+
+<div class="calc-page">
+
+  <div class="calc-hero">
+    <h1>Rideshare Tip Calculator</h1>
+    <p>Calculate the right tip for your Uber or Lyft ride in seconds — no math, no guessing, no awkward pause at the end of the trip.</p>
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label>Service Type</label>
+      <div class="tip-btns" id="serviceTypeBtns">
+        <button class="tip-btn active" data-service="ride">Uber / Lyft Ride</button>
+        <button class="tip-btn" data-service="eats">Uber Eats</button>
+        <button class="tip-btn" data-service="airport">Airport Ride</button>
+        <button class="tip-btn" data-service="taxi">Taxi / Cab</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Fare Amount</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="fare" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tip Percentage</label>
+      <div class="tip-btns" id="tipBtns">
+        <button class="tip-btn" data-val="0">No Tip</button>
+        <button class="tip-btn" data-val="10">10%</button>
+        <button class="tip-btn" data-val="15">15%</button>
+        <button class="tip-btn active" data-val="18">18%</button>
+        <button class="tip-btn" data-val="20">20%</button>
+        <button class="tip-btn" data-val="25">25%</button>
+      </div>
+      <div class="input-wrap no-prefix" style="margin-top:12px;">
+        <input type="number" id="tipPct" value="18" min="0" max="100" step="1" placeholder="Custom %">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Round Up Total?</label>
+      <div class="tip-btns" id="roundBtns">
+        <button class="tip-btn active" data-round="no">No</button>
+        <button class="tip-btn" data-round="yes">Round up to next $</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Number of Passengers</label>
+      <div class="stepper">
+        <button class="step-btn" id="minus">−</button>
+        <div id="peopleVal">1</div>
+        <button class="step-btn" id="plus">+</button>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result-row">
+        <span class="result-label">Fare</span>
+        <span class="result-val" id="fareDisplay">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Tip Amount</span>
+        <span class="result-val" id="tipDisplay">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Total</span>
+        <span class="result-val" id="totalDisplay">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Per Person</span>
+        <span class="result-val" id="perPersonDisplay">$0.00</span>
+      </div>
+    </div>
+
+    <div class="results" id="suggestedTips" style="margin-top:16px;">
+      <div class="result-row">
+        <span class="result-label">10% tip</span>
+        <span class="result-val" id="tip10">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">15% tip</span>
+        <span class="result-val" id="tip15">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">18% tip</span>
+        <span class="result-val" id="tip18">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">20% tip</span>
+        <span class="result-val" id="tip20">$0.00</span>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">↺ Reset</button>
+  </div>
+
+  <h2 class="section-title" id="tipGuideTitle">How Much to Tip Your Uber / Lyft Driver?</h2>
+  <div class="guide-grid" id="tipGuide">
+    <div class="guide-item">
+      <div class="service">⭐ Standard Ride</div>
+      <div class="amount">15% – 18%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🌟 Excellent Service</div>
+      <div class="amount">20% – 25%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">✈️ Airport Ride</div>
+      <div class="amount">18% – 20% minimum</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🧳 Driver Helped With Luggage</div>
+      <div class="amount">20%+</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🚗 Short Ride Under $8</div>
+      <div class="amount">$2 flat minimum</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🌧️ Bad Weather / Heavy Traffic</div>
+      <div class="amount">20%+ as a courtesy</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🎵 Clean Car, Good Vibes</div>
+      <div class="amount">Bump to 20%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">📱 Late Night / Early Morning</div>
+      <div class="amount">20% — they showed up</div>
+    </div>
+  </div>
+
+  <div class="card prose">
+    <h2>Do You Have to Tip Uber and Lyft Drivers?</h2>
+    <p>Technically no — tipping is optional on both platforms. But "optional" doesn't mean it doesn't matter.</p>
+    <p>Uber and Lyft drivers are independent contractors. They cover their own gas, car maintenance, insurance, and depreciation. After the platform takes its cut, the base fare a driver actually receives is often lower than most riders assume. Tips fill that gap — and both Uber and Lyft pass 100% of your tip directly to the driver, with no platform cut taken.</p>
+    <p>So while you won't get penalized for not tipping, the driver absolutely notices. And with both apps allowing drivers to rate passengers too, consistent non-tipping can affect your rider rating over time.</p>
+
+    <h2>Uber vs Lyft: Is There a Difference in Tipping?</h2>
+    <p>Not really. Both platforms use the same in-app tipping system, both pass 100% of tips to drivers, and both allow tipping up to 30 days after a ride. The tipping norms are identical — 15% to 20% for a standard ride, higher for exceptional service or airport trips.</p>
+    <p>One minor difference: Lyft prompts you to tip immediately after the ride ends, while Uber gives you a slightly more relaxed window. Either way, tipping in the app is the most common approach since most rides are cashless.</p>
+
+    <h2>How Much to Tip for Airport Rides?</h2>
+    <p>Airport rides deserve a higher tip than a standard city ride. The driver often had to navigate the airport's pickup zones — which are genuinely stressful — deal with traffic, wait longer than usual, and potentially help with luggage.</p>
+    <p>18% to 20% is the floor for airport rides. If the driver helped load or unload bags, went out of their way to find you in a crowded terminal, or the ride was long, 20% to 25% is appropriate.</p>
+
+    <h2>Flat Tips vs Percentage Tips</h2>
+    <p>For short rides with low fares, percentages don't always make sense. A 15% tip on a $5 ride is $0.75 — which feels stingy even if the math is technically correct. Most riders tip a flat $1 to $2 minimum on short rides regardless of what the percentage calculator spits out.</p>
+    <p>For longer rides, percentage tips are more appropriate since the fare itself is higher and the driver spent real time with you. A 15% tip on a $40 airport ride ($6) feels much more proportionate than $2 flat.</p>
+
+    <h2>Can You Tip in Cash?</h2>
+    <p>Yes — and some drivers actually prefer it since cash tips are immediately available rather than paid out on the app's schedule. If you have cash, handing it directly to the driver is always appreciated. Just make sure you're not also tipping in the app for the same ride.</p>
+  </div>
+
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q">How much should I tip my Uber driver? <span class="faq-icon">+</span></button>
+      <div class="faq-a">15% to 18% for a standard ride with good service. 20% or more for exceptional service, airport rides, help with luggage, or rides in bad weather. For very short rides under $8, a $2 flat tip is more appropriate than a low-percentage calculation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does Uber take a cut of tips? <span class="faq-icon">+</span></button>
+      <div class="faq-a">No — Uber and Lyft both pass 100% of your tip directly to the driver. The platform fee applies to the base fare only. Tipping in the app is just as good as tipping in cash from the driver's perspective, though cash is available to them immediately.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I tip Uber after the ride? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Yes — Uber allows you to tip up to 30 days after a ride through the app. Go to your trip history, select the ride, and add a tip. You don't have to decide at the moment the ride ends.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much do you tip for Uber Eats? <span class="faq-icon">+</span></button>
+      <div class="faq-a">15% to 20% of the order subtotal is standard for Uber Eats. Tip more for long delivery distances, bad weather, or large/heavy orders. The delivery driver keeps 100% of the tip — Uber Eats does not take a cut from it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is it rude not to tip an Uber driver? <span class="faq-icon">+</span></button>
+      <div class="faq-a">It's not considered outright rude, but it is noticed. Drivers can see their tip (or lack of one) after a ride and can factor it into passenger ratings. Given that drivers cover their own vehicle costs and the base fare is split with the platform, tips are an important part of their actual income.</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/calculators/rideshare-tip.js"></script>

@@ -1,0 +1,222 @@
+---
+layout: calculator
+title: "Hair Tip Calculator – Hairdresser, Stylist & Barber Tips"
+description: "Free hair tip calculator for salons and barbershops. Calculate the right tip for any hair service — haircut, color, balayage, highlights, blowout, and more."
+icon: "💇"
+name: "Hair Tip Calculator"
+card_desc: "Calculate tips for hairdressers, stylists, and barbers instantly."
+category: "Finance"
+---
+
+<div class="calc-page">
+
+  <div class="calc-hero">
+    <h1>Hair Tip Calculator</h1>
+    <p>Calculate the right tip for any salon or barbershop service — haircut, color, highlights, blowout, beard trim, and more.</p>
+  </div>
+
+  <div class="card">
+
+    <div class="field">
+      <label>Service Type</label>
+      <div class="tip-btns" id="serviceTypeBtns">
+        <button class="tip-btn active" data-service="haircut" data-default="20">Haircut</button>
+        <button class="tip-btn" data-service="color" data-default="20">Color / Dye</button>
+        <button class="tip-btn" data-service="balayage" data-default="22">Balayage</button>
+        <button class="tip-btn" data-service="highlights" data-default="22">Highlights</button>
+        <button class="tip-btn" data-service="blowout" data-default="18">Blowout</button>
+        <button class="tip-btn" data-service="beard" data-default="20">Beard Trim</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Bill Amount</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="bill" placeholder="0.00" min="0" step="0.01">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Did an Assistant Help? <small>(shampoo, blow dry)</small></label>
+      <div class="tip-btns" id="assistantBtns">
+        <button class="tip-btn active" data-assistant="no">No</button>
+        <button class="tip-btn" data-assistant="yes">Yes</button>
+      </div>
+    </div>
+
+    <div class="field" id="assistantAmtField" style="display:none;">
+      <label>Assistant Tip (separate cash tip recommended)</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="assistantTip" placeholder="3.00" min="0" step="0.50">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Tip Percentage</label>
+      <div class="tip-btns" id="tipBtns">
+        <button class="tip-btn" data-val="10">10%</button>
+        <button class="tip-btn" data-val="15">15%</button>
+        <button class="tip-btn" data-val="18">18%</button>
+        <button class="tip-btn active" data-val="20">20%</button>
+        <button class="tip-btn" data-val="22">22%</button>
+        <button class="tip-btn" data-val="25">25%</button>
+      </div>
+      <div class="input-wrap no-prefix" style="margin-top:12px;">
+        <input type="number" id="tipPct" value="20" min="0" max="100" step="1" placeholder="Custom %">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Number of People Splitting</label>
+      <div class="stepper">
+        <button class="step-btn" id="minus">−</button>
+        <div id="peopleVal">1</div>
+        <button class="step-btn" id="plus">+</button>
+      </div>
+    </div>
+
+    <div class="results">
+      <div class="result-row">
+        <span class="result-label">Service Bill</span>
+        <span class="result-val" id="billDisplay">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">Tip Amount</span>
+        <span class="result-val" id="tipDisplay">$0.00</span>
+      </div>
+      <div class="result-row" id="assistantRow" style="display:none;">
+        <span class="result-label">Assistant Tip</span>
+        <span class="result-val" id="assistantDisplay">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Total to Pay</span>
+        <span class="result-val" id="totalDisplay">$0.00</span>
+      </div>
+      <div class="result-row highlight">
+        <span class="result-label">Per Person</span>
+        <span class="result-val" id="perPersonDisplay">$0.00</span>
+      </div>
+    </div>
+
+    <div class="results" style="margin-top:16px;">
+      <div class="result-row">
+        <span class="result-label">15% tip</span>
+        <span class="result-val" id="tip15">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">18% tip</span>
+        <span class="result-val" id="tip18">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">20% tip</span>
+        <span class="result-val" id="tip20">$0.00</span>
+      </div>
+      <div class="result-row">
+        <span class="result-label">25% tip</span>
+        <span class="result-val" id="tip25">$0.00</span>
+      </div>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">↺ Reset</button>
+  </div>
+
+  <h2 class="section-title">Tipping Guide by Service</h2>
+  <div class="guide-grid">
+    <div class="guide-item">
+      <div class="service">✂️ Haircut</div>
+      <div class="amount">20% standard</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🎨 Color / Dye</div>
+      <div class="amount">20% standard</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🌊 Balayage</div>
+      <div class="amount">20% to 22% — complex service</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">✨ Highlights</div>
+      <div class="amount">20% to 22% — complex service</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">💨 Blowout</div>
+      <div class="amount">15% to 18% — shorter service</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🧔 Beard Trim</div>
+      <div class="amount">20% standard</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🙌 Shampoo Assistant</div>
+      <div class="amount">$3 to $5 cash, separate</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🏆 Exceptional Service</div>
+      <div class="amount">22% to 25%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">🎄 Holiday Season</div>
+      <div class="amount">Extra $10 to $20 as a bonus</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">😐 Below Average Service</div>
+      <div class="amount">10% to 15%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">👑 Salon Owner Cutting</div>
+      <div class="amount">Yes, still tip 20%</div>
+    </div>
+    <div class="guide-item">
+      <div class="service">💸 Cash vs Card</div>
+      <div class="amount">Cash preferred by most stylists</div>
+    </div>
+  </div>
+
+  <div class="card prose">
+    <h2>How Much Should You Tip a Hairdresser?</h2>
+    <p>20% is the standard for most hair services in the US. That applies whether you're getting a simple trim, a full color, or a blowout. For more complex and time-intensive services like balayage or highlights, tipping 20% to 22% is more appropriate since your stylist is investing significantly more time and skill.</p>
+    <p>If you're not sure where to start, our <a href="{{ site.baseurl }}/tip-calculator/" target="_blank">general tip calculator</a> works for any service too.</p>
+
+    <h2>Should You Tip the Salon Owner?</h2>
+    <p>Yes. The old rule about not tipping salon owners because they "set their own prices" is outdated. If someone did a great job on your hair, tip them. Owner or not. Most salon owners today will tell you the same thing if you ask directly.</p>
+
+    <h2>What About the Shampoo Assistant?</h2>
+    <p>If someone other than your main stylist washed or blow-dried your hair, tip them separately. A $3 to $5 cash tip handed directly to the assistant is the right move. This often gets missed because people tip on the card and assume it gets split — it usually doesn't.</p>
+
+    <h2>Do You Tip More for Color Services?</h2>
+    <p>For a standard single-process color, 20% is fine. For more complex work like balayage, highlights, or a full color correction, bumping to 20% to 25% is appropriate. These services take longer, require more product, and demand more skill — the tip should reflect that.</p>
+    <p>For more on tipping at barbershops specifically, check out the <a href="{{ site.baseurl }}/blog/how-much-to-tip-a-barber/" target="_blank">barber tipping guide</a>.</p>
+
+    <h2>Cash vs Card Tips at Salons</h2>
+    <p>Most stylists prefer cash tips. Card tips at salons are often processed through payroll, which means your stylist might wait days or even a week to actually receive it. Cash is immediate and goes directly to them. If you only have a card, still tip — a card tip is always better than nothing.</p>
+  </div>
+
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <button class="faq-q">How much do you tip a hairdresser on a $100 service? <span class="faq-icon">+</span></button>
+      <div class="faq-a">$20 at 20%, which is the standard. If the service was exceptional or particularly complex like a balayage or color correction, $22 to $25 is appropriate. For a simple trim that came in under budget, $15 to $18 is still respectful.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is 15% enough for a hairdresser? <span class="faq-icon">+</span></button>
+      <div class="faq-a">15% is on the low end and signals the service was just okay. Most stylists expect 20% for solid work. 15% is better than nothing, but if you were happy with the result, 20% is the right call.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you tip on the full price before or after a discount? <span class="faq-icon">+</span></button>
+      <div class="faq-a">Tip on the full price before any discount or coupon is applied. Your stylist did the same amount of work regardless of the promotional price. Tipping on a discounted total shortchanges them for work they fully performed.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much do you tip for a $200 balayage? <span class="faq-icon">+</span></button>
+      <div class="faq-a">$40 at 20%, or $44 to $50 if the result was exceptional. Balayage is a time-intensive and skill-heavy service — most stylists spend 2 to 4 hours on a full balayage. Tipping on the higher end of the range is a recognized gesture for complex color work.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Should you tip at a hair salon if you're unhappy with the result? <span class="faq-icon">+</span></button>
+      <div class="faq-a">If something went wrong, say something first — most stylists will fix it. If the issue was genuinely the stylist's fault and wasn't resolved, tipping 10% is a fair signal. Leaving nothing is a strong statement most people reserve for truly bad experiences.</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ site.baseurl }}/assets/js/calculators/hair-tip.js"></script>
